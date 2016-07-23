@@ -8,10 +8,12 @@ if (mysqli_connect_errno($con))
    echo "Failed to connect to MySQL: " . mysqli_connect_error();  
 }  
 $name = $_POST['name'];  
-$address = $_POST['address'];  
+$id = $_POST['id']; 
+$score = $_POST['score'];
+$time = $_POST['time'];
   
   
-$result = mysqli_query($con,"insert into Person (name,address) values ('$name','$address')");  
+$result = mysqli_query($con,"insert into Person (name,id,score,time) values ('$name','$id','$score','$time')");  
   
   if($result){  
     echo 'success';  
