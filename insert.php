@@ -16,11 +16,11 @@ $time = $_POST['time'];
 $result = mysqli_query($con,"insert into Person (name,id,score,lasttime) values ('$name','$id','$score','$time')");  
   
   if($result){  
-    echo 'success';  
+    //echo 'success';  
   }  
   else{  
     mysqli_query($con,"update into Person set lasttime='$time' whrere 1");
-    echo 'failure';  
+    echo '서버요청실패';  
   }  
   
   
