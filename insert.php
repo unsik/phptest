@@ -13,7 +13,7 @@ $score = $_POST['score'];
 $time = $_POST['time'];
   
   
-$result = mysqli_query($con,"insert into Person (name,id,score,time) values ('$name','$id','$score','$time')");  
+$result = mysqli_query($con,"insert into Person (name,id,score,lasttime) values ('$name','$id','$score','$time')");  
   
   if($result){  
     echo 'success';  
