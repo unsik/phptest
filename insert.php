@@ -14,7 +14,7 @@ $time = $_POST['time'];
   
   
 $result = mysqli_query($con,"insert into Person (name,id,score,lasttime) values ('$name','$id','$score','$time')");  
- mysqli_query($con,"UPDATE Person SET lasttime='abc'");
+ mysqli_query($con,"UPDATE Person SET lasttime='$time'");
   
   if($result){  
     //echo 'success';  
