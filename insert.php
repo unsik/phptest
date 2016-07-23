@@ -13,10 +13,12 @@ $score = $_POST['score'];
 $time = $_POST['time'];  
   
   
-$result = mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");  
- mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id'");
- mysqli_query($con,"UPDATE Person SET score='$score' where socre < '$score'");
-
+ mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");  
+$result = mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id'");
+if($result)
+{
+ mysqli_query($con,"UPDATE Person SET score='$score' where (score < '$score') && (id = '$id')");
+}
   
 mysqli_close($con);  
 ?> 
