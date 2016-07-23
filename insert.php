@@ -19,7 +19,7 @@ $result = mysqli_query($con,"insert into Person (name,id,score,lasttime) values 
     //echo 'success';  
   }  
   else{  
-    mysqli_query($con,"update into Person set lasttime='$time' whrere 1");
+    mysqli_query($con,"UPDATE Person set lasttime='$time' whrere 1");
     echo '서버요청실패';  
   }  
   
