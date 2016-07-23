@@ -1,5 +1,5 @@
 <?php  
-$con=mysqli_connect("127.0.0.1","root","next1004","db");  
+$con=mysqli_connect("127.0.0.1","root","next1004","data");  
  
 mysqli_set_charset($con,"utf8");
   
