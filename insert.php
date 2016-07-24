@@ -29,14 +29,9 @@ if($idcheck)
     if($row[2]<$score)
     {
      mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
-     echo $score;
+     echo "기록달성"+$score;
     }
  }
-
-if($score_result)
-{
- echo "socre입력성공";
-}
 
   
 mysqli_close($con);  
