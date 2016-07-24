@@ -19,7 +19,7 @@ $idcheck = mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id
 
 if($score_result)
 {
- echo "socre입력성공"
+ echo "socre입력성공";
 }
 
   
