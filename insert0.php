@@ -30,15 +30,12 @@ if($idcheck)
     if($row[2]<$score)
     {
      mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
-     echo "기록달성",$score;
+     echo "new record : ",$score;
     }
-     while($row = mysqli_fetch_array($res)){  
-       array_push($result,  
-         array('id'=>$row[0],'name'=>$row[1],'address'=>$row[2]  
-         ));  
-         echo json_encode(array("result"=>$result));
-
-     } 
+    else
+    {
+     echo "your high score : ",$row[2];
+    }
     
  }
  
