@@ -11,14 +11,24 @@ $name = $_POST['name'];
 $id = $_POST['id']; 
 $score = $_POST['score'];
 $time = $_POST['time'];  
+$result = array(); 
+
   
-  
- mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");  
-$result = mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id'");
-if($result)
+mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");  
+$idcheck = mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id'");
+if($idcheck)
 {
- mysqli_query($con,"UPDATE Person SET score='$score' where (score < '$score') && (id = '$id')");
+    $res = mysqli_query($con,"select * from Person where id = '$id' ");
+    $row = mysqli_fetch_array($res);
+    if($row[2]<$score)
+    $score_result=mysqli_query($con,"UPDATE Person SET score='$score' where socre < '$score'");
+ }
+
+if($score_result)
+{
+ echo "socre입력성공"
 }
+
   
 mysqli_close($con);  
 ?> 
