@@ -16,16 +16,6 @@ $result = array();
   
 mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");  
 $idcheck = mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id'");
-if($idcheck)
-{
-    $res = mysqli_query($con,"select * from Person where id = '$id' ");
-    $row = mysqli_fetch_array($res);
-    if($row[2]<$score)
-    {
-     $score_result=mysqli_query($con,"UPDATE Person SET score='$score' where socre < '$score'");
-    }
-    
- }
 
 if($score_result)
 {
