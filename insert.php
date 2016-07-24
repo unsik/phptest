@@ -22,7 +22,8 @@ if($idcheck)
     $row = mysqli_fetch_array($res);
     if($row[2]<$score)
     {
-     $score_result=mysqli_query($con,"UPDATE Person SET score='$score' where socre < '$score'");
+     $score_result=mysqli_query($con,"UPDATE Person SET score='$score'");
+     echo "socre진입성공";
     }
     
  }
