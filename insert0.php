@@ -33,9 +33,5 @@ if($idcheck)
     }
  }
 
-mysqli_query($con,"select ROW_NUMBER() OVER (ORDER BY Person desc) as rank,id, name,score,install,login,lasttime from Person");
-$Point_Rank = sql_fetch("select count($id) as Cnts from Person where score> '".$member['score']."'");
-mysqli_query($con,"UPDATE Person SET rank='$Point_Rank' where id = '$id' ");
-  
 mysqli_close($con);  
 ?> 
