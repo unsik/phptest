@@ -32,8 +32,6 @@ if($idcheck)
      echo "기록달성"+$score;
     }
  }
- 
- SELECT id, name, score, install, login, lasttime, @Rank := @Rank + 1 AS rank FROM Person CROSS JOIN (SELECT @Rank:=0) Sub0 ORDER BY score DESC
-
+mysqli_query($con,"SELECT id, name, score, install, login, lasttime, @Rank := @Rank + 1 AS rank FROM Person CROSS JOIN (SELECT @Rank:=0) Sub0 ORDER BY score DESC");
 mysqli_close($con);  
 ?> 
