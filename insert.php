@@ -33,6 +33,8 @@ if($idcheck)
     }
  }
 
+mysqli_query($con,"select ROW_NUMBER() OVER (ORDER BY Person desc) as score, id, name, install,login,lasttime from Person");
+
   
 mysqli_close($con);  
 ?> 
