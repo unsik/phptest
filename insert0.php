@@ -29,39 +29,18 @@ if($idcheck)
     if($row[2]<$score)
     {
      mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
-     echo "기록달성"+$score;
+     echo "기록달성",$score;
     }
+    
  }
-mysqli_query($con,"SELECT id, name, score, install, login, lasttime, @Rank := @Rank + 1 AS rank FROM Person CROSS JOIN (SELECT @Rank:=0) Sub0 ORDER BY score DESC");
+ 
+while($row = mysqli_fetch_array($res)){  
+  array_push($result,  
+    array('id'=>$row[0],'name'=>$row[1],'address'=>$row[2]  
+    ));  
+}  
+   
+echo json_encode(array("result"=>$result));
+
 mysqli_close($con);  
 ?> 
-
-<?php
-$limit = 5; // 랭킹 출력 갯수
-$ii = 1; // 순위 초기화
-$query = "SELECT id, name, score FROM Person ORDER BY point DESC LIMIT 0, $limit";
-$result = mysql_query($query);
-?>
-<table border='1'>
-<tr>
-<td>rank</td>
-<td>id</td>
-<td>name</td>
-<td>score</td>
-</tr>
-<?php
-while($data_row = mysql_fetch_array($result)) {
-?>
-<tr>
-<td><?= $ii ?></td>
-<td><?= $data_row['id'] ?></td>
-<td><?= $data_row['name'] ?></td>
-<td><?= $data_row['score'] ?></td>
-</tr>
-
-
-<?php
-$ii++;
-}
-?>
-</table>
