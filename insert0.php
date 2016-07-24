@@ -25,6 +25,13 @@ if($idcheck)
 {
     $res = mysqli_query($con,"select * from Person where id = '$id' ");
     $row = mysqli_fetch_array($res);
+    while($row = mysqli_fetch_array($res)){  
+       array_push($result,  
+         array('id'=>$row[0],'name'=>$row[1],'address'=>$row[2]  
+         ));  
+         echo json_encode(array("result"=>$result));
+
+     }  
     
     if($row[2]<$score)
     {
@@ -34,13 +41,8 @@ if($idcheck)
     
  }
  
-while($row = mysqli_fetch_array($res)){  
-  array_push($result,  
-    array('id'=>$row[0],'name'=>$row[1],'address'=>$row[2]  
-    ));  
-}  
+
    
-echo json_encode(array("result"=>$result));
 
 mysqli_close($con);  
 ?> 
