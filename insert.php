@@ -20,6 +20,7 @@ if($idcheck)
 {
     $res = mysqli_query($con,"select * from Person where id = '$id' ");
     $row = mysqli_fetch_array($res);
+    echo "idcheck";
     if($row[2]<$score)
     {
      $score_result=mysqli_query($con,"UPDATE Person SET score='$score'");
