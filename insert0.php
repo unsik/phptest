@@ -30,11 +30,11 @@ if($idcheck)
     if($row[2]<$score)
     {
      mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
-     echo "new record : ",$score;
+     echo "GOOD! New Record : ",$score;
     }
     else
     {
-     echo "your high score : ",$row[2];
+     echo "Your Record : ",$row[2];
     }
     
  }
