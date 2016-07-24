@@ -20,7 +20,7 @@ if($idcheck)
 {
     $res = mysqli_query($con,"select * from Person where id = '$id' ");
     $row = mysqli_fetch_array($res);
-    echo $row[1];
+    echo $score;
 
     
  }
