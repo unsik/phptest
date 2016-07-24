@@ -23,7 +23,7 @@ if($idcheck)
     
     if($row[2]<$score)
     {
-     mysqli_query($con,"UPDATE Person SET score='score' where id = '$id' ");
+     mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
      echo $score;
     }
 
