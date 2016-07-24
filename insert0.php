@@ -25,19 +25,20 @@ if($idcheck)
 {
     $res = mysqli_query($con,"select * from Person where id = '$id' ");
     $row = mysqli_fetch_array($res);
-    while($row = mysqli_fetch_array($res)){  
-       array_push($result,  
-         array('id'=>$row[0],'name'=>$row[1],'address'=>$row[2]  
-         ));  
-         echo json_encode(array("result"=>$result));
-
-     }  
+    
     
     if($row[2]<$score)
     {
      mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
      echo "기록달성",$score;
     }
+     while($row = mysqli_fetch_array($res)){  
+       array_push($result,  
+         array('id'=>$row[0],'name'=>$row[1],'address'=>$row[2]  
+         ));  
+         echo json_encode(array("result"=>$result));
+
+     } 
     
  }
  
