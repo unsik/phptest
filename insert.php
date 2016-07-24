@@ -11,10 +11,15 @@ $name = $_POST['name'];
 $id = $_POST['id']; 
 $score = $_POST['score'];
 $time = $_POST['time'];  
+$mode = $_POST['mode'];  
 $result = array(); 
 
   
-mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");  
+mysqli_query($con,"insert into Person (name,id,score,install) values ('$name','$id','$score','$time')");
+if($mode==2)
+{
+ $idcheck = mysqli_query($con,"UPDATE Person SET login='$time' where id = '$id'");
+}
 $idcheck = mysqli_query($con,"UPDATE Person SET lasttime='$time' where id = '$id'");
 if($idcheck)
 {
@@ -26,8 +31,6 @@ if($idcheck)
      mysqli_query($con,"UPDATE Person SET score='$score' where id = '$id' ");
      echo $score;
     }
-
-    
  }
 
 if($score_result)
